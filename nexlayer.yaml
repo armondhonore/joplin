@@ -2,7 +2,7 @@ application:
   name: joplin
   pods:
   - name: app
-    image: florider0/joplin-server:latest
+    image: joplin/server:latest
     path: /
     servicePorts:
     - 22300
@@ -10,11 +10,11 @@ application:
       APP_PORT: "22300"
       APP_BASE_URL: "https://relaxed-weasel-joplin.cloud.nexlayer.ai"
       DB_CLIENT: pg
-      POSTGRES_HOST: postgres.pod
+      POSTGRES_HOST: joplin-postgres.pod
       POSTGRES_PORT: "5432"
       POSTGRES_DATABASE: joplin
       POSTGRES_USER: joplin
-      POSTGRES_PASSWORD: joplin
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
   - name: postgres
     image: postgres:16-alpine
     servicePorts:
@@ -22,7 +22,7 @@ application:
     vars:
       POSTGRES_DB: joplin
       POSTGRES_USER: joplin
-      POSTGRES_PASSWORD: joplin
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
     volumes:
     - name: joplin-db
       mountPath: /var/lib/postgresql/data
