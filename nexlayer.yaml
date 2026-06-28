@@ -10,7 +10,7 @@ application:
       APP_PORT: "22300"
       APP_BASE_URL: "https://relaxed-weasel-joplin.cloud.nexlayer.ai"
       DB_CLIENT: pg
-      POSTGRES_HOST: joplin-postgres.pod
+      POSTGRES_HOST: postgres.pod
       POSTGRES_PORT: "5432"
       POSTGRES_DATABASE: joplin
       POSTGRES_USER: joplin
