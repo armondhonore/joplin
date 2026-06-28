@@ -2,7 +2,7 @@ application:
   name: joplin
   pods:
   - name: app
-    image: joplin/server:latest
+    image: mirror.gcr.io/joplin/server:latest
     path: /
     servicePorts:
     - 22300
@@ -16,7 +16,7 @@ application:
       POSTGRES_USER: joplin
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
   - name: postgres
-    image: postgres:16-alpine
+    image: mirror.gcr.io/library/postgres:16-alpine
     servicePorts:
     - 5432
     vars:
